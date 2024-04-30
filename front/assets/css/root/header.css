@@ -1,0 +1,17 @@
+header {
+    background-color: #68ACE6;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content:end;
+    align-items:center;
+    font-size: 1.5em;
+}
+
+a:hover {
+    color: #3788CC;
+}
+
+.container-content {
+    margin: 0 100px;
+}
