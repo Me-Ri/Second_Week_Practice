@@ -42,8 +42,15 @@ input {
 	margin-top: 0.5vw;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-.practic_comment{
+
+.practic-comment{
 	display: flex;
     flex-direction: row;
 	justify-content: center;
