@@ -1,0 +1,23 @@
+footer {
+    padding: 0 5%;
+    background: #125185;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    padding: 20px 0;
+}
+
+footer > p:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+footer img {
+    height: 41px;
+}
