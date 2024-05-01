@@ -8,6 +8,7 @@ main {
 
 h1{
     padding-bottom: 1vw;
+    color: #89BCE6;
 }
 
 p {
@@ -34,4 +35,10 @@ p {
 
 .content {
     margin-bottom: 1vw;
+}
+
+.form-btn {
+    display: flex;
+    justify-content: row;
+    gap: 0.5vw;
 }
