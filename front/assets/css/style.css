@@ -51,9 +51,24 @@ img {
     width: 18vh;
 }
 
-.btn-primary {
-    background-color: #125185;
+.content-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.btn {
     padding: 0.5vw 0.4vw;
     border-radius: 10px;
     color: white;
+}
+
+.primary {
+    background-color: #125185;
+}
+
+.download {
+    background-color: #3788CC;
+    width: 10vw;
 }
