@@ -1,0 +1,37 @@
+@import "root/root.css";
+@import "root/header.css";
+@import "root/footer.css";
+
+main {
+    margin: 2vw 0;
+}
+
+h1{
+    padding-bottom: 1vw;
+}
+
+p {
+    padding-bottom: 0.2vw;
+}
+
+.link {
+    color: #125185;
+}
+
+.btn {
+    padding: 0.5vw 0.4vw;
+    border-radius: 10px;
+    color: white;
+    background-color: #125185;
+    cursor: pointer;
+}
+
+.main-container {
+    display: flex;
+    margin: 0 5vw;
+    justify-content: space-between;
+}
+
+.content {
+    margin-bottom: 1vw;
+}
