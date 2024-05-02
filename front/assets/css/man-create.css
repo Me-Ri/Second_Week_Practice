@@ -3,7 +3,7 @@
 
 h1{
     margin-top: 2vw;
-    padding-bottom: 2vw;
+    padding-bottom: 0.5vw;
     color: #89BCE6;
 }
 
@@ -41,4 +41,11 @@ p {
     margin: 0 5vw;
     justify-content: center;
     align-items:center;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -79,8 +79,8 @@ $request = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE id_opop = 
             </div>
             <div>
                 <form action="OPOP-fill.php" method="post" enctype="multipart/form-data">
-                <button class="btn" type="submit">Создать практику</button>
-                
+                    <button class="btn" type="submit">Создать практику</button>
+                    <button class="btn" type="submit">Изменить практику</button>
                 </form>
             </div>
             <div>

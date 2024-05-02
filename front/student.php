@@ -91,6 +91,15 @@ var_dump($card);
                             <input type="hidden" name="id_opop" value="<?php echo $id_dir ?>">
                             
                         <button class="btn primary" type="submit">Заказать справку о прохождении практики</button>
+                        <div class="content-file">
+                            <div>
+                                <h2>Файл .csv</h2>
+                                <label for="file-upload" class="custom-file-upload">Выбрать файл</label>
+                            </div>
+                            
+                            <input type="file" id="file-upload" style="display: none;" />
+                            <div><button class="btn">Загрузить</button></div>
+					    </div>
                         <!-- <button class="btn download" type="button"> Скачать справку </button> -->
                         </form>
                     </div>

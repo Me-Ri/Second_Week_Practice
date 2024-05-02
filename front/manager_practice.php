@@ -52,7 +52,6 @@ if($_SESSION['user']['role'] != "P_MANAGER")
 				<?php while($req = mysqli_fetch_assoc($requests)) {
 					$idStud = $req['id_student'];
                     $stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
-					
 					?>
 
 					

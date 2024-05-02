@@ -24,7 +24,10 @@ input {
     width: 230px;
     height: 30px;
     border-radius: 10px;
-    
+}
+
+button {
+    margin-bottom: 1vw;
 }
 
 .main-container {
@@ -48,8 +51,4 @@ input {
     background-color: #125185;
     cursor: pointer;
 	margin-top: 0.5vw;
-}
-
-p{
-	margin-bottom: 0.8vw;
 }

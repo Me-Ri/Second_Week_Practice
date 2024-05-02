@@ -72,3 +72,11 @@ img {
     background-color: #3788CC;
     width: 10vw;
 }
+
+.content-file {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1vw;
+    gap: 1vw;
+}
