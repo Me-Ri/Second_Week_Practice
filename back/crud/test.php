@@ -1,8 +1,9 @@
 <?php
 require_once '../connect.php';
-$pass = password_hash('zmo', PASSWORD_DEFAULT);
 
-mysqli_query($connect, "UPDATE `users` SET password = '$pass' WHERE id = '9'");
+$pass = password_hash('admin', PASSWORD_DEFAULT);
+
+mysqli_query($connect, "INSERT INTO `users` (login, password, role) VALUES('admin', '$pass', 'ADMIN')"); 
 
 
 

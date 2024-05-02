@@ -1,14 +1,13 @@
-<?php 
+<?php
 session_start();
 require_once '../back/connect.php';
 require_once '../back/helpers.php';
 var_dump($_SESSION['user']);
 
-if(!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) {
 	redirect('login.php');
 }
-if($_SESSION['user']['role'] != "P_MANAGER") 	
-{
+if ($_SESSION['user']['role'] != "P_MANAGER") {
 	redirect('../back/redirect.php');
 }
 
@@ -48,8 +47,7 @@ $idDir = $_POST['id_dir'];
 					<div class="practic">
 						<div>
 							<h2>Как справлялся с трудностями</h2>
-							<input type="text" name="difficults"
-								placeholder="(Легко, с трудом, оперативно)">
+							<input type="text" name="difficults" placeholder="(Легко, с трудом, оперативно)">
 						</div>
 						<div>
 							<h2>Обьем выполнения задания</h2>
@@ -63,12 +61,23 @@ $idDir = $_POST['id_dir'];
 							<input type="text" name="demQ" placeholder="( Пунктуальность, ответственность и тп. )">
 						</div>
 					</div>
+					<div>
+						<h2>Оценка</h2>
+						<select name="mark">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5" selected>5</option>
+						</select>
+					</div>
 					<div class="practic-comment">
 						<div>
 							<h2>Замечания</h2>
 							<input type="text" name="comments" placeholder="( Отлынивал, Не посещал практику, Не имеются )">
 						</div>
 					</div>
+
+
 					<div>
 						<h2>Файл .csv</h2>
 						<input type="file" id="file-upload" style="display: none;" />
@@ -84,4 +93,5 @@ $idDir = $_POST['id_dir'];
 		</div>
 	</main>
 </body>
+
 </html>
