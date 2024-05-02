@@ -51,12 +51,14 @@ $opops = mysqli_query($connect, "SELECT * FROM `users` WHERE role ='OPOP'")
 				<?php while($opop = mysqli_fetch_assoc($opops)) { 
 					$idDir = $opop['id_direction'];
 					$dir =  mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `directions` WHERE id = '$idDir'"));
-					
+					$idOpop = $opop['id'];
 					?>
 				<div class="content">
-					<form action="">
+					<form action="../back/crud/deleteOPOP.php" method="post" enctype="multipart/form-data">
 						<p><?php echo $opop['fnp'] ?></p>
 						<p><?php echo $dir['name'] ?></p>
+						<input type="hidden" name="id_dir" value="<?php echo $idDir ?> ">
+						<input type="hidden" name="id_opop" value="<?php echo $idOpop ?> ">
 						<button class="btn" type="submit">Удалить</button>
 					</form>
 				</div>
