@@ -19,7 +19,8 @@ if($user = mysqli_fetch_assoc($query)) {
 
 if(password_verify($pass, $user['password']) ) {
     $_SESSION['user']['id'] = $user['id'];
-    redirect('/index.php');
+    $_SESSION['user']['role'] = $user['role'];
+    redirect('redirect.php');
 }
     errorMsg('error', 'Неверно введен пароль');
     addOldValue('name', $name); 

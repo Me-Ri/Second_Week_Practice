@@ -43,7 +43,7 @@ function hasErrorMessage(string $key): bool{
 }
 
 function currentUser(): array|false {
-    $connect = mysqli_connect("127.0.0.1", "root", "", "PHP4");
+    $connect = mysqli_connect("127.0.0.1", "root", "", "second_week");
 if(!$connect) {
     die('Ошибка подключения к бд');
 }
@@ -53,14 +53,15 @@ if(!$connect) {
     }
     $userId = $_SESSION['user']['id'] ?? null;
 
-    $query = mysqli_query($connect, "SELECT * FROM `Users` WHERE `id` = '$userId'");
+    $query = mysqli_query($connect, "SELECT * FROM `users` WHERE `id` = '$userId'");
     $user = mysqli_fetch_assoc($query);
     return $user;
 }
 
 function logout() {
     unset($_SESSION['user']['id']);
-    redirect('/login.php');
+    $_SESSION['user'] = [];
+    redirect('../../front/login.php');
     
 }
 

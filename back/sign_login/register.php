@@ -26,7 +26,7 @@ if(!empty($_SESSION['validation'])) {
 }
 $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-mysqli_query($connect, "INSERT INTO users (login, password, role) VALUES ('$name', '$pass', 'ADMIN')");
+mysqli_query($connect, "INSERT INTO users (login, password, role) VALUES ('$name', '$pass', '')");
 redirect('/../../front/login.php');
 mysqli_close($connect);
 

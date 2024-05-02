@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../helpers.php';
+require_once '../helpers.php';
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     logout();
 } 
 redirect('/index.php');
