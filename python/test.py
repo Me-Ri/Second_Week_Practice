@@ -1,7 +1,6 @@
 from docxtpl import DocxTemplate, R
 from docx import Document
-import pymorphy2
-import os
+import os, sys
 import csv
 
 #############################################################################
@@ -14,32 +13,32 @@ def delete_file(name_file):
 
 delete_file("doc-final.docx")
 
-php_mas =   [
-	        "Иванов Иван Иванович",
-            "Иванова Иван Ивановна",
-            "Петров Петр Петрович",
-            "Евдакимов Егор Александрович",
-            "Югорский государственный университет",
-            "2",
-            "1521б",
+php_mas = [
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3],
+            sys.argv[4],
+            sys.argv[5],
+            sys.argv[6],
+            sys.argv[7],
             [],
-            "Югорский государственный университет",
-            "доцент",
-            "учебная",
-            "22.04.2024-04.05.2024",
-            "доцент",
-            "программная инженерия",
-            "доцент",
-            "доцент",
-            "ознакомительная",
-            "ул.Чехова, 16",
-            "ахуенный, невьебенный, современный",
-            "отлично",
-            "в полном объеме",
-            "нет замечаний",
-            "5",
-            "доцент"
-		    ]
+            sys.argv[8],
+            sys.argv[9],
+            sys.argv[10],
+            sys.argv[11],
+            sys.argv[12],
+            sys.argv[13],
+            sys.argv[14],
+            sys.argv[15],
+            sys.argv[16],
+            sys.argv[17].lower(),
+            sys.argv[18].lower(),
+            sys.argv[19].lower(),
+            sys.argv[20],
+            sys.argv[21]
+            
+]
+
 
 veriables = [   
 	        "initials_manager_enterprise",
@@ -62,7 +61,7 @@ veriables = [
             "finish_dates",
             "finish_month",
             "post_manager_ugu",
-            "post_manager_organization",
+            #"post_manager_organization",
             "name_practice",
             "address_orginization",
             "quality",
@@ -70,10 +69,10 @@ veriables = [
             "completing_task",
             "comments",
             "grade",
-            "post_manager_enterprise"
+            
 		    ]
 
-#############################################################################
+############################################################################
 
 
 def fill_table():
@@ -104,7 +103,7 @@ def fill_table():
 
     doc_table.save("table.docx")
 
-#############################################################################
+############################################################################
 
 fill_table()
 doc = DocxTemplate("table.docx")
@@ -133,10 +132,11 @@ dates()
 
 contex = {veriables[i]:php_mas[i] for i in range(len(veriables))}
 contex['task'] = R("\n\t".join(generate_tasks()))
+# contex = {"group":sys.argv}
 
 doc.render(contex)
 
-doc.save("doc-final.docx")
+doc.save("doc-f.docx")
 
 delete_file("table.docx")
 
