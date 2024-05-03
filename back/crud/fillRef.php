@@ -16,6 +16,6 @@ mysqli_query($connect, "INSERT INTO `student_practice` (id_student, difficults, 
 
 
 
-redirect('../../python/test.php?idStud='.urlencode($idStud));
+redirect('../../python/doc-1.php?idStud='.urlencode($idStud));
 
 ?>

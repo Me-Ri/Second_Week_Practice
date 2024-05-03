@@ -67,6 +67,20 @@ if ($_SESSION['user']['role'] != "P_MANAGER") {
 				<?php } ?>
 			</div>
 			<?php
+				$practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id_ugu_pm = '$userId'"));
+				
+			?>
+			<div>
+				<h1>Отчет по практике</h1>
+				<form action="../python/doc-2.php" method="post" enctype="multipart/form-data">
+					<p>Предложение по улучшению практики</p>
+					<input type="hidden" name="pracId" value="<?php echo $practice['id'] ?>">
+					<input type="text" name="comment">
+					<button class="btn" type="submit">Запросить отчет</button>
+				</form>
+			</div>
+
+			<?php
 				
 	
 				$edit = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'");

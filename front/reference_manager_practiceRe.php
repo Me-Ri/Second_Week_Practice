@@ -56,14 +56,15 @@ $item =mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `student_practic
 						</div>
 						<div>
 							<h2>Обьем выполнения задания</h2>
-							<select name="volume" id="">
+							<select name="volume" id="" onchange="toggleBadReason()">
 								<option value="Частично" <?php if($item['volume'] == 'Частично') { echo 'selected';}?>>Частично</option>
 								<option value="В полном объёме" <?php if($item['volume'] == 'В полном объёме') { echo 'selected';}?> >В полном объёме</option>
+								<option value="Не выполнено" <?php if($item['volume'] == 'Не выполнено') { echo 'selected';}?> >Не выполнено</option>
 							</select>
 						</div>
 						<div>
 							<h2>Продемонстрированные качества</h2>
-							<input type="text" name="demQ" value="<?php echo $item['qualities'] ?>" placeholder="( Пунктуальность, ответственность и тп. )">
+							<input type="text" name="demQ" value="<?php echo $item['qualities'] ?>" placeholder="Пунктуальность, ответственность и тп.">
 						</div>
 					</div>
 				
@@ -77,9 +78,13 @@ $item =mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `student_practic
 								<option value="5" <?php if($item['mark'] == '5') { echo 'selected';}?>>5</option>
 							</select>
 						</div>
+						<div class="bad-reason-block">
+							<h2>Причина непрохождения</h2>
+							<input type="text" name="bad-reason" placeholder="укажите причину 2-ки если она стоит">
+						</div>
 						<div>
 							<h2>Замечания</h2>
-							<input type="text" name="comments" value="<?php echo $item['comment'] ?>" placeholder="( Отлынивал, Не посещал практику, Не имеются )">
+							<input type="text" name="comments" value="<?php echo $item['comment'] ?>" placeholder="Отлынивал, Не посещал практику, Не имеются">
 						</div>
 					</div>
 				</div>

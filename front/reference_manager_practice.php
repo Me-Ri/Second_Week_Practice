@@ -47,34 +47,39 @@ $idDir = $_POST['id_dir'];
 					<div class="practic">
 						<div>
 							<h2>Как справлялся с трудностями</h2>
-							<input type="text" name="difficults" placeholder="(Легко, с трудом, оперативно)">
+							<input type="text" name="difficults" placeholder="легко, с трудом, оперативно">
 						</div>
 						<div>
 							<h2>Обьем выполнения задания</h2>
 							<select name="volume" id="">
 								<option value="Частично">Частично</option>
 								<option value="В полном объёме">В полном объёме</option>
+								<option value="Не выполнено">Не выполнено</option>
 							</select>
 						</div>
 						<div>
 							<h2>Продемонстрированные качества</h2>
-							<input type="text" name="demQ" placeholder="( Пунктуальность, ответственность и тп. )">
+							<input type="text" name="demQ" placeholder="пунктуальность, ответственность и тп.">
 						</div>
 					</div>
 				
 					<div class="practic-comment">
 						<div>	
 							<h2>Оценка</h2>
-							<select name="mark">
+							<select name="mark" onchange="toggleBadReason()">
 								<option value="2">2</option>
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5" selected>5</option>
 							</select>
 						</div>
+						<div class="bad-reason-block">
+							<h2>Причина непрохождения</h2>
+							<input type="text" name="bad-reason" placeholder="укажите причину 2-ки если она стоит">
+						</div>
 						<div>
 							<h2>Замечания</h2>
-							<input type="text" name="comments" placeholder="( Отлынивал, Не посещал практику, Не имеются )">
+							<input type="text" name="comments" placeholder="Отлынивал, Не посещал практику, Не имеются">
 						</div>
 					</div>
 				</div>
