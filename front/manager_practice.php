@@ -1,14 +1,13 @@
-<?php 
+<?php
 session_start();
 require_once '../back/connect.php';
 require_once '../back/helpers.php';
 var_dump($_SESSION['user']);
 
-if(!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) {
 	redirect('login.php');
 }
-if($_SESSION['user']['role'] != "P_MANAGER") 
-{
+if ($_SESSION['user']['role'] != "P_MANAGER") {
 	redirect('../back/redirect.php');
 }
 
@@ -37,33 +36,63 @@ if($_SESSION['user']['role'] != "P_MANAGER")
 		</div>
 	</header>
 
-	<?php 
+	<?php
 	$userId = $_SESSION['user']['id'];
 	$query = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `users` WHERE id = '$userId'"));
 	$idDir =  $query['id_direction'];
 	$requests = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE id_opop = '$idDir' AND state = 'Ожидает ПМ'");
-	
-	
+
+
 	?>
+
 	<main>
 		<div class="main-container">
 			<div>
 				<h1>Заявления на заполнение </h1>
-				<?php while($req = mysqli_fetch_assoc($requests)) {
+				<?php while ($req = mysqli_fetch_assoc($requests)) {
 					$idStud = $req['id_student'];
-                    $stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
-					?>
+					$stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
 
-					
-				<div class="content">
-					<form action="reference_manager_practice.php" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">
-						<input type="hidden" name="id_dir" value="<?php echo $idDir ?>">
-						<p><?php echo $stud['fnp'] ?></p>
-						<button class="btn" type="submit">Заполнить справку</button>
-					</form>
-				</div>
+				?>
+
+
+					<div class="content">
+						<form action="reference_manager_practice.php" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">
+							<input type="hidden" name="id_dir" value="<?php echo $idDir ?>">
+							<p><?php echo $stud['fnp'] ?></p>
+							<button class="btn" type="submit">Заполнить справку</button>
+						</form>
+					</div>
 				<?php } ?>
+			</div>
+			<?php
+				
+	
+				$edit = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'");
+				$count = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'")));
+	
+			?>
+			
+			<div>
+				<?php if($count > 0) { ?>
+			<h1>Заявления на редактирование </h1>
+				<?php while($item = mysqli_fetch_assoc($edit) ) { 
+				$idStud = $item['id_student'];
+				$stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
+				
+					?>
+				
+
+					<div class="content">
+						<form action="reference_manager_practiceRe.php" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">
+							<input type="hidden" name="id_dir" value="<?php echo $idDir ?>">
+							<p><?php echo $stud['fnp'] ?></p>
+							<button class="btn" type="submit">Редактировать</button>
+						</form>
+					</div>
+				<?php } }?>
 			</div>
 		</div>
 	</main>

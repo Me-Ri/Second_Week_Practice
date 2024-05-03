@@ -123,7 +123,7 @@ $userId = $_SESSION['user']['id'];
                         <?php  
                              $res = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE id_student = '$id_stud' AND state = 'Подтвержден'");
                             if($res = mysqli_fetch_assoc($res)) {
-                                echo '<div><button style="background-color: #3788CC" class="btn"><a href="../python/doc-final_'.$id_stud.'.docx" download>Загрузить справку</a></button></div>';
+                                echo '<div><button style="background-color: #3788CC" class="btn"><a href="../python/doc-f.docx" download>Загрузить справку</a></button></div>';
                             }
                         ?>
                     </div>
