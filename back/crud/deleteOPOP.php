@@ -15,13 +15,16 @@ while ($item = mysqli_fetch_assoc($group)) {
     $stud = mysqli_query($connect, "SELECT * FROM `students` where id_group = '$groupId'");
     while ($st = mysqli_fetch_assoc($stud)) {
         $studId = $st['id'];
-        mysqli_query($connect, "DELETE FROM `users` WHERE id_student =  '$stupId'");
-    }
+        mysqli_query($connect, "DELETE FROM `users` WHERE id_student =  '$studId'");
+        mysqli_query($connect, "DELETE FROM `student_practice` WHERE id_student = '$studId'");
+    }   
     mysqli_query($connect, "DELETE FROM `students` where id_group = '$groupId'");
-   
+    mysqli_query($connect, "DELETE FROM `practice` WHERE id_group = '$groupId'");
 }
 mysqli_query($connect, "DELETE FROM `groups` WHERE id_direction =  '$idDir' ");
-mysqli_query($connect, "DELETE FROM `users` WHERE id_student =  '$idDir' ");
+mysqli_query($connect, "DELETE FROM `users` WHERE id_direction =  '$idDir' ");
+mysqli_query($connect, "DELETE FROM `student_opop` WHERE id_opop =  '$idDir' ");
+
  redirect('../../front/admin.php');
 
 

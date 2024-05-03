@@ -83,7 +83,7 @@ if ($_SESSION['user']['role'] != "OPOP") {
             $pm = mysqli_query($connect, "SELECT * FROM `users` WHERE id_direction = '$idDir' AND role = 'P_MANAGER'" );
             $pmCount = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `users` WHERE id_direction = '$idDir' AND role = 'P_MANAGER'")));
             ?>
-            <?php if ($pmCount == $groupCount) {
+            <?php if ($pmCount == $groupCount && $pmCount != 0 && $groupCount  != 0 ) {
                 
                 $Pracman = mysqli_fetch_assoc($pm);
                 $idPm = $Pracman['id'];
