@@ -1,0 +1,68 @@
+@import "root/root.css";
+@import "root/header.css";
+@import "root/footer.css";
+
+.link {
+    color: #125185;
+}
+
+h2 {
+    color: #89BCE6;
+    padding-bottom: 0.3vw;
+}
+
+input {
+    width: 23vw;
+    height: 30px;
+    border-radius: 10px;
+    
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw 0;
+}
+
+.practic {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-bottom: 3vw;
+}
+
+.btn {
+    padding: 0.5vw 0.4vw;
+    border-radius: 10px;
+    color: white;
+    background-color: #125185;
+    cursor: pointer;
+	margin-top: 0.5vw;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.practic-comment{
+	display: flex;
+    flex-direction: row;
+	justify-content: center;
+    gap: 2vw;
+    margin-bottom: 3vw;
+}
+
+.custom-file-upload {
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
