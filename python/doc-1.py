@@ -89,7 +89,7 @@ def fill_table():
     doc_table.tables[4]
 
     name_sername_mas = php_mas[3].split()
-    name_sername = name_sername_mas[1] + " " + name_sername_mas[0]
+    name_sername = name_sername_mas[1].strip() + " " + name_sername_mas[0].strip()
 
     count_row = 3
     for i in range(3, len(mas_issues) + 2):

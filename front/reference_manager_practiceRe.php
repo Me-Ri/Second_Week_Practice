@@ -2,7 +2,6 @@
 session_start();
 require_once '../back/connect.php';
 require_once '../back/helpers.php';
-var_dump($_SESSION['user']);
 
 if (!isset($_SESSION['user'])) {
 	redirect('login.php');

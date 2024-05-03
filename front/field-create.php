@@ -38,7 +38,7 @@ $idDir =  $query['id_direction'];
                     <div class="practic">
                         <input type="hidden" name="id_dir" value="<?php echo $idDir?>">
                         <div>
-                            <h2>Лоигн</h2>
+                            <h2>Логин</h2>
                             <input type="text" name="login" placeholder="Введите логин">
                         </div>
                         <div>
