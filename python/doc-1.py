@@ -37,6 +37,7 @@ php_mas = [
             sys.argv[20],
             sys.argv[21]
             
+            
 ]
 
 
@@ -81,7 +82,7 @@ def fill_table():
     with open('issues.csv', 'r',  encoding='utf-8-sig', newline='') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         for row in spamreader:
-            mas_issues.append([row[9], row[13], row[7]])
+            mas_issues.append([row[5], row[6][:10], row[4]])
 
     doc_table = Document("образец документа.docx")
 

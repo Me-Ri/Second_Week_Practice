@@ -15,6 +15,6 @@ mysqli_query($connect, "UPDATE `student_practice`  SET id_student = '$idStud', d
 
 mysqli_query($connect, "UPDATE `student_opop` SET state = 'Подтверждает ОПОП' WHERE id_student = '$idStud' AND id_opop = '$idDir'");
 
-redirect('../../python/doc-1.php?idStud='.urlencode($idStud));
+redirect('../../python/doc1.php?idStud='.urlencode($idStud));
 
 ?>

@@ -71,5 +71,10 @@ else { // ИВТ
 
  $result = shell_exec("python doc-2.py \"$OPOPmanager\" \"$practManager\" \"$codeDir\" \"$dirName\" \"$groupCourse\" \"$groupName\" \"$arrayString\" \"$commentManager\" \"$numberOrder\" \"$dateOrder\" \"$date\" ");
 
+ $file = 'doc-final.docx';
+ header('Content-Type: file/docx');
+ header('Content-Disposition: attachment; filename="doc-final.docx"');
+ readfile($file);
+
  //redirect('../front/manager_practice.php');
 ?>

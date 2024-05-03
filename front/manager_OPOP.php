@@ -105,7 +105,7 @@ if ($_SESSION['user']['role'] != "OPOP") {
                     <p><?php echo $stud['fnp'] ?></p>
                     <div class="form-btn">
                         <form action="">
-                            <a href="../python/doc-final_'<?php echo $idStud ?>'.docx" download>
+                            <a href="../python/doc-final_<?php echo $idStud ?>.docx" download>
                             <button class="btn" type="button">Проверить</button>
                             </a>
                         </form>
