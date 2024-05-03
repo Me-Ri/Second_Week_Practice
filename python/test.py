@@ -11,7 +11,7 @@ def delete_file(name_file):
 
 #############################################################################
 
-delete_file("doc-final.docx")
+delete_file("doc-f.docx")
 
 php_mas = [
             sys.argv[1],
