@@ -29,7 +29,9 @@ veriables = [
             "comment",
             "number_order",
             "date_order",
-            "date_practice"
+            "date_practice",
+            "count_good",
+            "count_bad"
             ]
 
 mark = []
@@ -38,14 +40,20 @@ bad_student = []
 badreason = []
 
 def good_or_bad_student():
+    count_bad = 0
+    count_good = 0
     for i in range(0, len(php_mas[6])):
         mas = php_mas[6][i].split("@")
         mark.append(mas[0])
         badreason.append(mas[1])
         if(int(mas[0]) < 3):
             bad_student.append(mas[2])
+            count_bad += 1
         else:
             good_student.append(mas[2])
+            count_good += 1
+    php_mas.append(count_good)
+    php_mas.append(count_bad)
             
 def initials():
     for i in range(0, 2):
@@ -77,7 +85,7 @@ def fill_table():
         new_row = doc_table.add_row()
         new_row.cells[0].text = " " + str(i + 1)
         new_row.cells[1].text = "    " + bad_student[i]
-        new_row.cells[2].text = mark[i]
+        new_row.cells[2].text = badreason[i]
 
     doc.save("table.docx")
 
