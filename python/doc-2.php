@@ -7,7 +7,7 @@ $idPractice = $_POST['pracId'];
 $commentManager = $_POST['comment'];
 //$id = $_GET['idStud'];
 
-$practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id = '1'"));
+$practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id = '$idPractice'"));
 $groupId = $practice['id_group'];
 
 $group =  mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `groups` WHERE id = '$groupId'"));

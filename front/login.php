@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once  '../back/helpers.php';
-var_dump($_SESSION['user']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

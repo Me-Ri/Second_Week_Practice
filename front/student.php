@@ -2,7 +2,7 @@
 session_start();
 require_once '../back/connect.php';
 require_once '../back/helpers.php';
-var_dump($_SESSION['user']);
+
 
 if (!isset($_SESSION['user'])) {
     redirect('login.php');
@@ -40,7 +40,7 @@ $userId = $_SESSION['user']['id'];
     <?php
 
     $user = mysqli_fetch_assoc(mysqli_query($connect, "SELECT `id_student` FROM users WHERE id = '$userId'"));
-    var_dump($user['id_student']);
+
     $id_stud = $user['id_student'];
     $card = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$id_stud'"));
     $id_group = $card['id_group'];
@@ -57,7 +57,7 @@ $userId = $_SESSION['user']['id'];
 
 
 
-    var_dump($card);
+
     ?>
     <main>
         <div class="main-container">
