@@ -95,7 +95,7 @@ def fill_table():
         if(mas_issues[i - 2][0] == name_sername):
             for j in range(0, 2):
                 if (j == 0):
-                    doc_table.tables[4].cell(count_row, j).text = mas_issues[i - 2][1]
+                    doc_table.tables[4].cell(count_row, j).text = mas_issues[i - 2][1].replace("/", ".")
                 if (j == 1):
                     doc_table.tables[4].cell(count_row, j).text = mas_issues[i - 2][2]
                     php_mas[7].append(mas_issues[i - 2][2])
@@ -136,38 +136,8 @@ contex['task'] = R("\n\t".join(generate_tasks()))
 
 doc.render(contex)
 
-doc.save("doc-f.docx")
+doc_puti = "doc-final_" + sys.argv[22] + ".docx"
+
+doc.save(doc_puti)
 
 delete_file("table.docx")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# morph = pymorphy2.MorphAnalyzer()
-
-# vid = morph.parse("учебная")[0]
-# mas = [vid.inflect({"nomn"}).word,vid.inflect({"gent"}).word,vid.inflect({"datv"}).word,vid.inflect({"accs"}).word,vid.inflect({"ablt"}).word,vid.inflect({"loct"}).word]
-
-# print(mas)
