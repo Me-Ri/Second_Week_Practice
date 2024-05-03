@@ -67,9 +67,27 @@ if ($_SESSION['user']['role'] != "P_MANAGER") {
 				<?php } ?>
 			</div>
 			<?php
-				$practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id_ugu_pm = '$userId'"));
-				
+			$fillCount = 0;
+			$practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id_ugu_pm = '$userId'"));
+			$groupId = $practice['id_group'];
+			$practiceCount = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `practice` WHERE id_ugu_pm = '$userId'")));
+			$group = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` WHERE id = '$groupId'"));
+			$students = mysqli_query($connect, "SELECT * FROM `students` WHERE id_group = '$groupId'");
+			$studCount = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `students` WHERE id_group = '$groupId'")));
+			while ($item = mysqli_fetch_assoc($students)) {
+				$idStud = $item['id'];
+				if (mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `student_practice` WHERE id_student = '$idStud'"))) {
+					$fillCount += 1;
+				}
+			}
+
 			?>
+			<?php if ($practiceCount > 0) {
+				var_dump($fillCount);
+				var_dump($studCount);
+				if($fillCount == $studCount) {
+			 ?>
+			
 			<div>
 				<h1>Отчет по практике</h1>
 				<form action="../python/doc-2.php" method="post" enctype="multipart/form-data">
@@ -79,34 +97,35 @@ if ($_SESSION['user']['role'] != "P_MANAGER") {
 					<button class="btn" type="submit">Запросить отчет</button>
 				</form>
 			</div>
-
+			<?php  } }?>
 			<?php
-				
-	
-				$edit = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'");
-				$count = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'")));
-	
-			?>
-			
-			<div>
-				<?php if($count > 0) { ?>
-			<h1>Заявления на редактирование </h1>
-				<?php while($item = mysqli_fetch_assoc($edit) ) { 
-				$idStud = $item['id_student'];
-				$stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
-				
-					?>
-				
 
-					<div class="content">
-						<form action="reference_manager_practiceRe.php" method="post" enctype="multipart/form-data">
-							<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">
-							<input type="hidden" name="id_dir" value="<?php echo $idDir ?>">
-							<p><?php echo $stud['fnp'] ?></p>
-							<button class="btn" type="submit">Редактировать</button>
-						</form>
-					</div>
-				<?php } }?>
+
+			$edit = mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'");
+			$count = count(mysqli_fetch_all(mysqli_query($connect, "SELECT * FROM `student_opop` WHERE `id_opop` = '$idDir' AND state = 'Редактирует ПМ'")));
+
+			?>
+
+			<div>
+				<?php if ($count > 0) { ?>
+					<h1>Заявления на редактирование </h1>
+					<?php while ($item = mysqli_fetch_assoc($edit)) {
+						$idStud = $item['id_student'];
+						$stud = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `students` WHERE id = '$idStud'"));
+
+					?>
+
+
+						<div class="content">
+							<form action="reference_manager_practiceRe.php" method="post" enctype="multipart/form-data">
+								<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">
+								<input type="hidden" name="id_dir" value="<?php echo $idDir ?>">
+								<p><?php echo $stud['fnp'] ?></p>
+								<button class="btn" type="submit">Редактировать</button>
+							</form>
+						</div>
+				<?php }
+				} ?>
 			</div>
 		</div>
 	</main>

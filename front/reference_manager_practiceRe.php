@@ -80,7 +80,7 @@ $item =mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `student_practic
 						</div>
 						<div class="bad-reason-block">
 							<h2>Причина непрохождения</h2>
-							<input type="text" name="bad-reason" placeholder="укажите причину 2-ки если она стоит">
+							<input type="text" value="<?php echo $item['badReason'] ?>" name="bad-reason" placeholder="укажите причину 2-ки если она стоит">
 						</div>
 						<div>
 							<h2>Замечания</h2>
