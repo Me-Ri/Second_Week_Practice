@@ -63,15 +63,6 @@ $idDir = $_POST['id_dir'];
 					</div>
 				
 					<div class="practic-comment">
-						<div>	
-							<h2>Оценка</h2>
-							<select name="mark">
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5" selected>5</option>
-							</select>
-						</div>
 						<div>
 							<h2>Оценка</h2>
 							<select name="mark">
