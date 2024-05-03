@@ -52,8 +52,10 @@ if($_SESSION['user']['role'] != "OPOP")
     <main>
         <div class="main-container">
             <div>
-                <h1>Руководители </h1>
-                <a class="btn" href="field-create.php">Создать руководителя</a>
+                <div class="group">
+                    <h1>Руководители </h1>
+                    <a class="btn" href="field-create.php">Создать руководителя</a>
+                </div>
                 <?php while($item = mysqli_fetch_assoc($managers)) { ?>
                 <div class="content">
                     <form action="../back/crud/deletePracticeManager.php" method="post" enctype="multipart/form-data">

@@ -8,8 +8,8 @@
 
 h2 {
     color: #89BCE6;
-    padding-bottom: 0.3vw;
-    width: 12vw;
+    padding-bottom: 0.5vw;
+    width: 275px;
 }
 
 input {
@@ -17,6 +17,12 @@ input {
     height: 30px;
     border-radius: 10px;
     
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-container {
@@ -32,6 +38,12 @@ input {
     flex-direction: row;
     gap: 2vw;
     margin-bottom: 3vw;
+}
+
+.practic > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .btn {

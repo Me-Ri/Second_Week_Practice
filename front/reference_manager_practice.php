@@ -61,29 +61,21 @@ $idDir = $_POST['id_dir'];
 							<input type="text" name="demQ" placeholder="( Пунктуальность, ответственность и тп. )">
 						</div>
 					</div>
-					<div>
-						<h2>Оценка</h2>
-						<select name="mark">
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5" selected>5</option>
-						</select>
-					</div>
+				
 					<div class="practic-comment">
+						<div>	
+							<h2>Оценка</h2>
+							<select name="mark">
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5" selected>5</option>
+							</select>
+						</div>
 						<div>
 							<h2>Замечания</h2>
 							<input type="text" name="comments" placeholder="( Отлынивал, Не посещал практику, Не имеются )">
 						</div>
-					</div>
-
-
-					<div>
-						<h2>Файл .csv</h2>
-						<input type="file" id="file-upload" style="display: none;" />
-						<label for="file-upload" class="custom-file-upload">Выбрать файл</label>
-						<div><button class="btn">Загрузить</button></div>
-
 					</div>
 				</div>
 				<input type="hidden" name="id_stud" value="<?php echo $idStud ?>">

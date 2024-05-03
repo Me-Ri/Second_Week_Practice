@@ -7,6 +7,17 @@ h1{
     color: #89BCE6;
 }
 
+form {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    gap: 1vw;
+}
+
+button {
+    margin-right: 0.3vw;
+}
+
 .link {
     color: #125185;
 }
@@ -23,13 +34,6 @@ h1{
     display: flex;
     justify-content: row;
     margin-top: 2vw;
-}
-
-form {
-    display: flex;
-    justify-content: row;
-    align-items: center;
-    gap: 1vw;
 }
 
 p {

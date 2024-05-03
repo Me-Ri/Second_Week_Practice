@@ -59,12 +59,13 @@ if($_SESSION['user']['role'] != "OPOP")
                             <h2>Вид практики</h2>
                             <select name="view">
                                 <option value="Учебная">Учебная</option>
+                                <option value="Производственная">Производственная</option>
                             </select>
                         </div>    
                         <div>
                             <h2>Тип практики</h2>
                             <select name="type">
-                                <option value="ознакомительная">Ознакомительная</option>
+                                <option value="Производственная">ознакомительная</option>
                             </select>
                         </div>             
                     </div>

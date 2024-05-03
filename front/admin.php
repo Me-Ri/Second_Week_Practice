@@ -42,10 +42,12 @@ $opops = mysqli_query($connect, "SELECT * FROM `users` WHERE role ='OPOP'")
 
 ?>
 	<main>
-		<div  class="main-container">
+		<div class="main-container">
 			<div>
-				<h1>ОПОП </h1>
-				<a class="btn" type="button" type="submit" href="create_OPOP.php">Создать ОПОП</a>
+				<div class="title">
+					<h1>ОПОП </h1>
+					<a class="btn" type="button" type="submit" href="create_OPOP.php">Создать ОПОП</a>
+				</div>
 				<?php while($opop = mysqli_fetch_assoc($opops)) { 
 					$idDir = $opop['id_direction'];
 					$dir =  mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `directions` WHERE id = '$idDir'"));
@@ -63,9 +65,11 @@ $opops = mysqli_query($connect, "SELECT * FROM `users` WHERE role ='OPOP'")
 				<?php } ?>
 			</div>
 			<div>
-				<h1>Институт</h1>
-				<a class="btn" type="button" type="submit" href="createInstitute.php">Добавить институт</a>
-				<?php while($inst = mysqli_fetch_assoc($query)) { ?>
+				<div class="title">
+					<h1>Институт</h1>
+					<a class="btn" type="button" type="submit" href="createInstitute.php">Добавить институт</a>
+				</div>
+					<?php while($inst = mysqli_fetch_assoc($query)) { ?>
 				<div class="content">
 					<form action="../back/crud/deleteInstitute.php" method="post" enctype="multipart/form-data">
 						<p><?php echo $inst['name'] ?></p>
