@@ -55,7 +55,7 @@ $mark = $studPractice['mark'];
 
 // $result = shell_exec("python test.py $practManager");
 
-$result = shell_exec("python test.py \"$practManager\" \"$practManager\" \"$practManager\" \"$studFnp\" \"$instName\" \"$groupCourse\" \"$groupName\" \"ФГБОУ ВО 'Югорский Государственный Университет'\" \"$postPM\" \"$typePrac\" \"$date\" \"$postPM\" \"$dirName\" \"$postPM\" \"$viewPrac\" \"$address\" \"$quality\" \"$difficult\" \"$volume\" \"$comment\" \"$mark\"");
+$result = shell_exec("python test.py \"$practManager\" \"$practManager\" \"$practManager\" \"$studFnp\" \"$instName\" \"$groupCourse\" \"$groupName\" \"ФГБОУ ВО 'Югорский Государственный Университет'\" \"$postPM\" \"$typePrac\" \"$date\" \"$postPM\" \"$dirName\" \"$postPM\" \"$viewPrac\" \"$address\" \"$quality\" \"$difficult\" \"$volume\" \"$comment\" \"$mark\" \"$idStud\" ");
 // $result = shell_exec("python test.py $practManager $practManager $practManager $studFnp $groupCourse $groupName $postPM $typePrac $date $postPM $dirName $postPM $viewPrac $address $quality $difficult $volume $comment");
 
 // var_dump($result);
