@@ -64,7 +64,7 @@ $practice = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM `practice` 
                             <h2>Вид практики</h2>
                             <select name="view">
                                 <option value="Учебная" <?php if($practice['view'] == 'Учебная' ) { echo 'selected'; } ?>>Учебная</option>
-                                <option value="Производственная" <?php if($practice['view'] == 'Производственная' ) { echo 'selected'; } ?>>Производственная</option>
+                               
                             </select>
                         </div>    
                         <div>
