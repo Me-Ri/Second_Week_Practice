@@ -1,0 +1,82 @@
+@import "root/root.css";
+@import "root/header.css";
+@import "root/footer.css";
+/* @import "root/main.css"; */
+
+img {
+    /* max-width: 350px; */
+    max-width: 15vw;
+}
+
+.main-container {
+    margin: 6vw 0;
+    display: flex;
+    justify-content: center;
+    font-size: 0.8vw;
+    font-weight: regular;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2vw 1vw;
+    box-shadow: 0 4px 4px 0 rgba(18, 81, 133, 0.5);
+    gap: 1.5vw;
+}
+
+.content-element {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+}
+
+.element {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    /* justify-content: space-between; */
+    /* text-align: left; */
+    /* justify-content: left; */
+}
+
+.element-title {
+    /* width: 110px; */
+    width: 10vh;
+}
+
+.element-text {
+    /* width: 180px; */
+    width: 18vh;
+}
+
+.content-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.btn {
+    padding: 0.5vw 0.4vw;
+    border-radius: 10px;
+    color: white;
+}
+
+.primary {
+    background-color: #125185;
+}
+
+.download {
+    background-color: #3788CC;
+    width: 10vw;
+}
+
+.content-file {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1vw;
+    gap: 1vw;
+}
