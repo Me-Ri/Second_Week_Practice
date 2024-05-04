@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 03 2024 г., 18:18
--- Версия сервера: 8.0.30
--- Версия PHP: 8.0.30
+-- Время создания: Май 04 2024 г., 08:34
+-- Версия сервера: 10.4.32-MariaDB
+-- Версия PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `directions` (
-  `id` int NOT NULL,
-  `name` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_institute` int NOT NULL,
-  `id_manager_opop` int DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `id_institute` int(11) NOT NULL,
+  `id_manager_opop` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,10 +41,10 @@ CREATE TABLE `directions` (
 --
 
 CREATE TABLE `groups` (
-  `id` int NOT NULL,
-  `name` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_direction` int NOT NULL,
-  `course` int NOT NULL DEFAULT '1'
+  `id` int(11) NOT NULL,
+  `name` varchar(32) NOT NULL,
+  `id_direction` int(11) NOT NULL,
+  `course` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -54,8 +54,8 @@ CREATE TABLE `groups` (
 --
 
 CREATE TABLE `institutes` (
-  `id` int NOT NULL,
-  `name` varchar(128) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -65,19 +65,19 @@ CREATE TABLE `institutes` (
 --
 
 CREATE TABLE `practice` (
-  `id` int NOT NULL,
-  `year` int NOT NULL,
-  `view` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `type` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_group` int NOT NULL,
-  `address` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_ugu_pm` int NOT NULL,
-  `id_ent_pm` int NOT NULL,
-  `id_org_pm` int NOT NULL,
-  `order_num` varchar(16) COLLATE utf8mb4_general_ci NOT NULL,
-  `order_date` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `start_date` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `end_date` varchar(32) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `view` varchar(32) NOT NULL,
+  `type` varchar(32) NOT NULL,
+  `id_group` int(11) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `id_ugu_pm` int(11) NOT NULL,
+  `id_ent_pm` int(11) NOT NULL,
+  `id_org_pm` int(11) NOT NULL,
+  `order_num` varchar(16) NOT NULL,
+  `order_date` varchar(32) NOT NULL,
+  `start_date` varchar(32) NOT NULL,
+  `end_date` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -87,9 +87,9 @@ CREATE TABLE `practice` (
 --
 
 CREATE TABLE `students` (
-  `id` int NOT NULL,
-  `fnp` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_group` int NOT NULL
+  `id` int(11) NOT NULL,
+  `fnp` varchar(64) NOT NULL,
+  `id_group` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -99,9 +99,9 @@ CREATE TABLE `students` (
 --
 
 CREATE TABLE `student_opop` (
-  `id_student` int NOT NULL,
-  `id_opop` int NOT NULL,
-  `state` varchar(32) COLLATE utf8mb4_general_ci NOT NULL
+  `id_student` int(11) NOT NULL,
+  `id_opop` int(11) NOT NULL,
+  `state` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -111,14 +111,14 @@ CREATE TABLE `student_opop` (
 --
 
 CREATE TABLE `student_practice` (
-  `id` int NOT NULL,
-  `id_student` int NOT NULL,
-  `difficults` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `volume` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `qualities` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `comment` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `mark` int NOT NULL,
-  `badReason` varchar(64) COLLATE utf8mb4_general_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `id_student` int(11) NOT NULL,
+  `difficults` varchar(64) NOT NULL,
+  `volume` varchar(64) NOT NULL,
+  `qualities` varchar(64) NOT NULL,
+  `comment` varchar(64) NOT NULL,
+  `mark` int(11) NOT NULL,
+  `badReason` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -128,14 +128,14 @@ CREATE TABLE `student_practice` (
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `login` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
-  `fnp` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `role` varchar(32) COLLATE utf8mb4_general_ci NOT NULL,
-  `id_direction` int DEFAULT NULL,
-  `id_student` int DEFAULT NULL,
-  `post` varchar(32) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `login` varchar(32) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `fnp` varchar(64) DEFAULT NULL,
+  `role` varchar(32) NOT NULL,
+  `id_direction` int(11) DEFAULT NULL,
+  `id_student` int(11) DEFAULT NULL,
+  `post` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -199,43 +199,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `directions`
 --
 ALTER TABLE `directions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT для таблицы `institutes`
 --
 ALTER TABLE `institutes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `practice`
 --
 ALTER TABLE `practice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT для таблицы `student_practice`
 --
 ALTER TABLE `student_practice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
