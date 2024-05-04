@@ -30,8 +30,11 @@ veriables = [
             "number_order",
             "date_order",
             "date_practice",
+			"view",
+			"type",
 			"count_good",
 			"count_bad"
+			
 		    ]
 
 mark = []

@@ -33,7 +33,8 @@ $end_date  = $practice['end_date'];
 $date = $start_date.'-'.$end_date;
 $numberOrder = $practice['order_num'];
 $dateOrder = $practice['order_date'];
-
+$view = $practice['view'];
+$type = $practice['type'];
 $array = [];
 
 while ($item = mysqli_fetch_assoc($student)) {
@@ -69,7 +70,7 @@ else { // ИВТ
 }
 
 
- $result = shell_exec("python doc-2.py \"$OPOPmanager\" \"$practManager\" \"$codeDir\" \"$dirName\" \"$groupCourse\" \"$groupName\" \"$arrayString\" \"$commentManager\" \"$numberOrder\" \"$dateOrder\" \"$date\" ");
+ $result = shell_exec("python doc-2.py \"$OPOPmanager\" \"$practManager\" \"$codeDir\" \"$dirName\" \"$groupCourse\" \"$groupName\" \"$arrayString\" \"$commentManager\" \"$numberOrder\" \"$dateOrder\" \"$date\" \"$view\" \"$type\" ");
 
  $file = 'doc-final.docx';
  header('Content-Type: file/docx');
